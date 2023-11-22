@@ -5,7 +5,9 @@ using UnityEngine.Playables; //Add this at the start to gain functions for the t
 public class TimelineTrigger : MonoBehaviour
 {
 
-    public PlayableDirector Timeline_Event; //Name of the TimeLine slot for the script, visuble in Unity    
+    public PlayableDirector Timeline_Event; //Name of the TimeLine slot for the script, visuble in Unity
+                                            //
+    public GameObject ObjectToDeactivate;
 
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other) //Changed from Void Start (Doesn't start on play)
@@ -21,6 +23,7 @@ public class TimelineTrigger : MonoBehaviour
     {
         Timeline_Event.Stop(); //Stops the timeline from playing when the player steps off the platform
         Debug.Log("Player stepped out of trigger bounds. The Timeline has been stopped");
+        ObjectToDeactivate.SetActive(false);
     }
 
 
