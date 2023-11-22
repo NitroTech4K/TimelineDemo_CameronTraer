@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Respawn : MonoBehaviour
+public class GameRespawn : MonoBehaviour
 {
+
+    public float threshold;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,8 +13,11 @@ public class Respawn : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(transform.position.y < threshold)
+        {
+            transform.position = new Vector3(2.412f, 0.907f, 0f);
+        }
     }
 }
